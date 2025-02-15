@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          default-label: donfig-server
+          uri: https://github.com/LuisFer2500/microservicios-prueba
+          search-paths: config-data
+  aplication:
+    name: config-service
+
