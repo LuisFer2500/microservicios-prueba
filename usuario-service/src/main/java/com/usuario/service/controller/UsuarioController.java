@@ -13,12 +13,12 @@ import java.util.Map;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/usuario")
 public class UsuarioController {
     @Autowired
     private UsuarioServicio usuarioServicio;
 
-    @GetMapping("/usuario")
+    @GetMapping()
     public ResponseEntity<List<Usuario>> getAll(){
         List<Usuario> usuarios = usuarioServicio.getAll();
         if(usuarios.isEmpty()){
@@ -27,7 +27,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarios);
     }
 
-    @GetMapping("/usuario/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Usuario> getUsuarioById(@PathVariable int id){
         Usuario usuario = usuarioServicio.getUsuarioById(id);
         if(usuario == null){
@@ -36,7 +36,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario);
     }
 
-    @PostMapping("/usuario")
+    @PostMapping()
     public ResponseEntity<Usuario> saveUsuario(@RequestBody Usuario user){
         Usuario newUsuario =  usuarioServicio.saveUsuario(user);
         if (newUsuario == null){
@@ -45,7 +45,7 @@ public class UsuarioController {
         return ResponseEntity.ok(newUsuario);
     }
 
-    @GetMapping("/usuario/carros/{usuarioId}")
+    @GetMapping("/carros/{usuarioId}")
     public ResponseEntity<List<Carro>> getCarros(@PathVariable("usuarioId") int usuarioId){
         Usuario usuario = usuarioServicio.getUsuarioById(usuarioId);
         if(usuario == null){
@@ -60,7 +60,7 @@ public class UsuarioController {
         return ResponseEntity.ok(carros);
     }
 
-    @PostMapping("/usuario/carro/usuario/{usuarioId}")
+    @PostMapping("/carro/usuario/{usuarioId}")
     public ResponseEntity<Carro> saveCarro(@PathVariable("usuarioId") int id, @RequestBody Carro carro){
         Usuario usuario = usuarioServicio.getUsuarioById(id);
         if(usuario == null){
@@ -71,7 +71,7 @@ public class UsuarioController {
         return ResponseEntity.ok(nuevoCarro);
     }
 
-    @PostMapping("/usuario/moto/{usuarioId}")
+    @PostMapping("/moto/{usuarioId}")
     public ResponseEntity<List<Moto>> getMotos(@PathVariable("usuarioId") int usuarioID){
         Usuario usuario = usuarioServicio.getUsuarioById(usuarioID);
         if(usuario == null){
@@ -84,7 +84,7 @@ public class UsuarioController {
         return ResponseEntity.ok(motos);
     }
 
-    @PostMapping("/usuario/moto/usuario/{usuarioId}")
+    @PostMapping("/moto/usuario/{usuarioId}")
     public ResponseEntity<Moto> saveMoto(@PathVariable("usuarioId") int usuarioId, @RequestBody Moto moto){
         Usuario usuario = usuarioServicio.getUsuarioById(usuarioId);
         if(usuario == null){
@@ -94,7 +94,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioServicio.saveMoto(usuarioId, moto));
     }
 
-    @GetMapping("usuario/todos/{usuarioId}")
+    @GetMapping("/todos/{usuarioId}")
     public ResponseEntity<Map<String, Object>> listarTodosVehiculos(@PathVariable("usuarioId") int usuarioId){
         Map<String,Object> resultado = usuarioServicio.getUsuarioAndVehiculo(usuarioId);
         return ResponseEntity.ok(resultado);
