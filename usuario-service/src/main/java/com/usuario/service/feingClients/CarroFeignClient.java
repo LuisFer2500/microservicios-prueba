@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(name="carro-service", url="http://localhost:8002/api/v1")
+@FeignClient(name="carro-service")
 public interface CarroFeignClient {
 
-    @PostMapping("/carro")
+    @PostMapping("/api/v1/carro")
     public Carro saveCarro(@RequestBody Carro carro);
 
-    @GetMapping("/carro/usuario/{usuarioId}")
+    @GetMapping("/api/v1/carro/usuario/{usuarioId}")
     public List<Carro> getCarros(@PathVariable("usuarioId") int usuarioId);
 }
