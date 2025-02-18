@@ -8,3 +8,7 @@ spring:
   aop:
     proxy-target-class: true
 
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
