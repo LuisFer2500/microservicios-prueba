@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("/api/v1")
 public class UsuarioController {
     @Autowired
     private UsuarioServicio usuarioServicio;
