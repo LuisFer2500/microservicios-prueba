@@ -1,11 +1,13 @@
 server:
   port: 8080
+
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
       default-zone: http://localhost:8761/eureka
+
   instance:
     prefer-ip-address: true  # <-- Esto hará que use la IP en lugar del hostname
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
@@ -17,17 +19,19 @@ spring:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true  # Asegura que nombres de servicios sean minúsculas
       routes:
         - id: usuario-service
-          uri: lb://USUARIO-SERVICE
+          uri: lb://usuario-service
           predicates:
             - Path=/usuario/**
         - id: carro-service
-          uri: lb://CARRO-SERVICE
+          uri: lb://carro-service
           predicates:
             - Path=/api/v1/carro/**
         - id: moto-service
-          uri: lb://MOTO-SERVICE
+          uri: lb://moto-service
           predicates:
             - Path=/api/v1/moto/**
+
 
