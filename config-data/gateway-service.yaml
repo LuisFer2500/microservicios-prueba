@@ -14,18 +14,18 @@ spring:
     gateway:
       discovery:
         locator:
-          enable: true
+          enabled: true
       routes:
         - id: usuario-service
-          uri: lb://usuario-service
+          uri: lb://USUARIO-SERVICE
           predicates:
             - Path=/usuario/**
         - id: carro-service
-          uri: lb://carro-service
+          uri: lb://CARRO-SERVICE
           predicates:
             - Path=/api/v1/carro/**
         - id: moto-service
-          uri: lb://moto-service
+          uri: lb://MOTO-SERVICE
           predicates:
             - Path=/api/v1/moto/**
 
