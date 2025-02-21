@@ -6,4 +6,4 @@ spring:
       enabled: true
       uri: http://localhost:8081
   aop:
-    proxy-target-class: true
+    proxy-target-class: true  
