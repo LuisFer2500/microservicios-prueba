@@ -8,6 +8,6 @@ spring:
           default-label: gateway
           uri: https://github.com/LuisFer2500/microservicios-prueba
           search-paths: config-data
-  aplication:
+  application:
     name: config-service
 
