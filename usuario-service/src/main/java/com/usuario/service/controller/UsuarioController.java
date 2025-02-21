@@ -71,7 +71,7 @@ public class UsuarioController {
         return ResponseEntity.ok(nuevoCarro);
     }
 
-    @PostMapping("/moto/{usuarioId}")
+    @GetMapping("/moto/{usuarioId}")
     public ResponseEntity<List<Moto>> getMotos(@PathVariable("usuarioId") int usuarioID){
         Usuario usuario = usuarioServicio.getUsuarioById(usuarioID);
         if(usuario == null){
