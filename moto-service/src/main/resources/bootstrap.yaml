@@ -1,7 +1,12 @@
 spring:
   application:
-    name: moto-service
+    name: MOTO-SERVICE
   cloud:
     config:
       enabled: true
       uri: http://localhost:8081
+
+server:
+  tomcat:
+    apr: false
+

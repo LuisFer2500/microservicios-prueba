@@ -18,7 +18,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioServicio usuarioServicio;
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<Usuario>> getAll(){
         List<Usuario> usuarios = usuarioServicio.getAll();
         if(usuarios.isEmpty()){
@@ -36,7 +36,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario);
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<Usuario> saveUsuario(@RequestBody Usuario user){
         Usuario newUsuario =  usuarioServicio.saveUsuario(user);
         if (newUsuario == null){
