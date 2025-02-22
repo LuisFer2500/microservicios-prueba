@@ -9,9 +9,10 @@ eureka:
       default-zone: http://localhost:8761/eureka
 
   instance:
-    #prefer-ip-address: true  # Asegura que use la IP
+    prefer-ip-address: true  # Asegura que use la IP
+    instance-id: ${spring.application.name}:${server.port}
     #instance-id: ${spring.cloud.client.ip-address}:${server.port}  # Instancia basada en IP
-    instance-id: ${spring.application.name}:${random.uuid}
+    #instance-id: ${spring.application.name}:${random.uuid}
 
 logging:
   level:
