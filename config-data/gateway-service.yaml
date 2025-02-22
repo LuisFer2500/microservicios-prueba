@@ -36,3 +36,13 @@ spring:
             - Path=/api/v1/moto/**
 
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+
+
