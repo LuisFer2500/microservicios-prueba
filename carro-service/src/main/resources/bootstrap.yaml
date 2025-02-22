@@ -1,12 +1,7 @@
 spring:
   application:
-    name: CARRO-SERVICE
+    name: carro-service
   cloud:
     config:
       enabled: true
       uri: http://localhost:8081
-
-server:
-  tomcat:
-    apr: false
-
