@@ -10,9 +10,9 @@ eureka:
 
   instance:
     prefer-ip-address: true  # Asegura que use la IP
-    instance-id: ${spring.application.name}:${server.port}
+    #instance-id: ${spring.application.name}:${server.port}
     #instance-id: ${spring.cloud.client.ip-address}:${server.port}  # Instancia basada en IP
-    #instance-id: ${spring.application.name}:${random.uuid}
+    instance-id: ${spring.application.name}:${random.uuid}
 
 resilience4j.circuitbreaker:
     instances:
@@ -43,6 +43,9 @@ resilience4j.circuitbreaker:
             waitDurationInOpenState: 5s
             failureRateThreshold: 50
             eventConsumerBufferSize: 10
+spring:
+  application:
+    zipkin: http://localhost:9411
 
 
 logging:
