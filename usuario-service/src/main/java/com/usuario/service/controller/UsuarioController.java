@@ -114,7 +114,7 @@ public class UsuarioController {
     }
 
     private ResponseEntity<Carro> fallBackSaveCarro(@PathVariable("usuarioId") int id, @RequestBody Carro carro, RuntimeException exception){
-        return new ResponseEntity("El usuario " id + " no tiene saldo para comprar el carro ", HttpStatus.OK);
+        return new ResponseEntity("El usuario "+ id + " no tiene saldo para comprar el carro ", HttpStatus.OK);
     }
 
     private ResponseEntity<List<Moto>> fallBackGetMotos(@PathVariable("usuarioId") int id, RuntimeException exception){

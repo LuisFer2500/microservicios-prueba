@@ -14,13 +14,13 @@ eureka:
     instance-id: ${spring.application.name}:${random.uuid}
     #hostname: localhost
 
-spring: 
+spring:
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
-          lower-case-service-id: true  # Asegura que nombres de servicios sean minúsculas
+          lower-case-service-id: true # Asegura que nombres de servicios sean minúsculas
       routes:
         - id: usuario-service
           uri: lb://USUARIO-SERVICE
